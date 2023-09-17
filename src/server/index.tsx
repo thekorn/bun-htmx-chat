@@ -1,7 +1,8 @@
-import { Elysia } from 'elysia';
-import { html } from '@elysiajs/html';
+/// <reference types="@kitajs/html/htmx.d.ts" />
 import '@kitajs/html/register';
 
+import { Elysia, t } from 'elysia';
+import { html } from '@elysiajs/html';
 import Layout from './layout';
 import Main from './components/main';
 
@@ -14,6 +15,17 @@ const app = new Elysia()
       </Layout>
     );
   })
+  .post(
+    '/initChat',
+    function ({ body: { username } }) {
+      return <div>Hello {username}</div>;
+    },
+    {
+      body: t.Object({
+        username: t.String(),
+      }),
+    },
+  )
   .get('/_assets/:filename', function ({ params: { filename } }) {
     return new Response(Bun.file(`./dist/client/${filename}`));
   })
