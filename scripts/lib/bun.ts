@@ -3,7 +3,7 @@ import type { ConcurrentlyCommandInput } from 'concurrently';
 function getBunCommand(watch: boolean, minify: boolean) {
   return `bun build --target browser ${watch ? '--watch' : ''} ${
     minify ? '--minify' : ''
-  } ./src/client/index.ts --outfile ./dist/client.js`;
+  } ./src/client/index.ts --outfile ./dist/client/client.js`;
 }
 
 export function buildClients(

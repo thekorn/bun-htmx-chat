@@ -5,7 +5,8 @@ import { buildClients } from './lib/bun';
 
 const { result } = concurrently([
   {
-    command: 'bun build src/server/index.tsx --minify --outfile dist/server.js',
+    command:
+      'bun build src/server/index.tsx --minify --outfile dist/server/server.js',
     name: 'server',
     prefixColor: 'red',
   },
