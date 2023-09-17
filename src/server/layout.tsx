@@ -1,4 +1,6 @@
-export default function () {
+import Html from '@kitajs/html';
+
+export default function ({ children }: { children: Html.Children }) {
   return (
     <html lang="en">
       <head>
@@ -8,9 +10,7 @@ export default function () {
         <script src="/_assets/client.js"></script>
         <title>Hello World</title>
       </head>
-      <body>
-        <h1 class="bg-slate-600">Hello World</h1>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
